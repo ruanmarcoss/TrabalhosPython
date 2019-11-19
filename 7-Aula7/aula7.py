@@ -15,3 +15,21 @@ if media >= 7:
 dicionario_alunos = {'Nome' : nome, 'Lista_Notas' : lista_notas, 'Media' : media, 'situacao' : situacao }
 
 print(f"{dicionario_alunos['Nome']} - {dicionario_alunos['situacao']} ")
+
+dicionario_bandas = ['Nome' : '']
+dicionario_bandas['Nome'] = 'Calipso'
+dicionario_bandas['Nome'] = 'Dejavu'
+
+print(dicionario_bandas)
+
+dicionario = { 'Nome' : 'Ruan' , 'Sobrenome' : 'Silva'}
+dicionario['Sobrenome'] = 'Marcos'
+dicionario['CPF'] = '092.636.689-09'
+
+for i in range(1,11):
+    dicionario_pessoa = {'Nome' : '', 'Sobrenome' :'', 'CPF' : '', 'RG' : ''  }
+    dicionario_pessoa['Nome'] = input('Digite o nome: ')
+    dicionario_pessoa['SObrenome'] = input('Digite o Sobrenome: ')
+    dicionario_pessoa['CPF'] = input('Digite o cpf: ')
+    dicionario_pessoa['RG'] = input('Digite o rg: ')
+    lista_pessoas.append(dicionario_pessoa)
