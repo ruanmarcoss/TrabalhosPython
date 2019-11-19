@@ -11,7 +11,7 @@ resultado = numero1 // numero2
 resultado2 = numero1 % numero2
 
 
-resultado3 = 3**3
+resultado3 = 3**1
 resultado4 = 9**0.5
 
 

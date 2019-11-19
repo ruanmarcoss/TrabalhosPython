@@ -14,34 +14,31 @@
 #---         de 4664,69 ate ------- - percetual = 27,5%
 #--- Base - http://www.calculador.com.br/calculo/salario-liquido 
 
-def calculo_inss(salario):
-    if(salario>0 and salario<=1751.81):
-        inss = salario * 0.08
-    elif(salario>1751.81 and salario<=2919.72):
-        inss = salario * 0.090
-    elif(salario>2919.72 and <=5839.45):
-        inss = salario * 0.11
-    else:
-        inss = 642.34
-    return inss
+# Aula 9 - 19-11-2019
+#---
 
-
-def calculo_irrf(salario):
-    irrf = 0
-    if(salario>1903.98 and salario <=2826.65):
-        irrf = (((salario - inss) *0.075)-142.80)
-    elif(salario>2826.66 and salario<=3751.05):
-        irrf = (((salario - inss) *0.15)-)
-
-
-
-
+from calculo_imposto import calculo_inss, calculo_irrf
 
 
 print('='*50, '\n')
 
-# nome = input('nome completo: ')
-# cpf = input('cpf: ')
-# num_registro = int(input('num_registro: '))
-# cargo = input('cargo: ')
-salario = float(input('salario: '))
+salario = float( input('Digite seu salario:') )
+
+inss = calculo_inss(salario)
+irrf = calculo_irrf(salario, inss)
+
+salario_liquido = salario - inss - irrf
+print(f'Inss: {inss}')
+print(f'Irrf: {irrf}')
+print(f'Seu salário liquido é {salario_liquido}')
+
+print( '\n'*2,'='*50)
+
+
+
+# nome_completo = input('Digite seu nome completo:')
+# cpf = input('Digite seu cpf:')
+# num_registro = int( input('Digite seu registro:') )
+# cargo = input('Digite seu cargo:') 
+
+
