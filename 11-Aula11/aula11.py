@@ -51,22 +51,10 @@
 # 10410.00
 # selic +0.02 ao ano
 
-print('='*10, '\n')
-
-
-investimento = float(input('digite o valor do investimento: '))
-cotas = float(input('digite a quantidade das cotas: '))
-rendimento = float (input('digite o valor do rendimento: '))
-
-
-
-
-
-
-
-
-
-
-
-
-print('='*10, '\n')
+# print('='*10, '\n')
+# cotas = float(input('digite quantas cotas desejas: '))
+#     if(cotas<0.01):
+#         print('erro, valor mínimo de cotas não atingido')
+#     else:
+#         print('certo, valor mínimo de cotas atingido')
+# print('='*10, '\n')

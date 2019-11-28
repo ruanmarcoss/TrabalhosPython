@@ -9,11 +9,4 @@
 
 
 
-def cota(quantidades_cotas, valor_investido):
-    if(cota<1):
-        taxa_selic = valor_investido * quantidades_cotas
-    elif(cota<2):
-        taxa_selic = valor_investido * quantidades_cotas
-    
-        
     
