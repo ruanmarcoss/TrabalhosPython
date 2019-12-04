@@ -30,7 +30,21 @@ cabecalho = cerveja[0]
 dados = cerveja[1:]
 
 for dados_cerveja in dados:
-    print(f'{cabecalho[0]} {dados_cerveja[0]}')
-    print(f'{cabecalho[1]} {dados_cerveja[1]}')
-    print(f'{cabecalho[2]} {dados_cerveja[2]}')
-    print(f'{cabecalho[3]} {dados_cerveja[3]}')
+    for i in range(4):
+      print(f'{cabecalho[i]} {dados_cerveja[i]}')
+
+def receber(cerveja):
+    cabecalho = cerveja[0] # Separa o cabeçalho da tupla
+    dados = cerveja[1:] # Separa os dados da tupla
+    lista_cerva = [] # Inicia uma lista para receber os dados
+    for dados_cerveja in dados: # For para quebrar os dados, gerando o dicionário para armazenar os dados
+        dicionario = {cabecalho[0]:dados_cerveja[0],cabecalho[1]:dados_cerveja[1],cabecalho[2]:dados_cerveja[2],cabecalho[3]:dados_cerveja[3]}
+        lista_cerva.append(dicionario) # Adicionando o dicionário na lista
+    return lista_cerva # Retorna a lista para o programa
+print(receber(cerveja))
+# [
+# {'marca': 'Skol', 'tipo': 'IPA', 'ibu': 'ultra-leve', 'preço': 3.5}, 
+# {'marca': 'Brahma', 'tipo': 'lager', 'ibu': 'leve/media', 'preço': 3.45},
+# {'marca': 'Kaiser', 'tipo': 'Americam Larger', 'ibu': 'leve', 'preço': 2.35},
+# {'marca': 'Sol', 'tipo': 'larger mão', 'ibu': 'agua', 'preço': 1.19}
+# ]

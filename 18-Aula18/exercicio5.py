@@ -36,9 +36,12 @@ lista = [
           ['carro','moto','vespa','caminhão','sprinter','kombi','fusca'],
           ['calça','camisa','japona','jaqueta','camiseta','bone','regata']
         ]
-contador = 0
-for lista_itens in lista:
-    print(f'############# posição {contador} ##################')
-    for item in lista_itens:
-        print(item)
-    contador = contador +1
+def lista_item(lista):
+    contador = 0
+    for lista_itens in lista:
+        print(f'############# posição {contador} ##################')
+        contador = contador +1
+        for item in lista_itens:
+            print(item)
+
+lista_item(lista)
