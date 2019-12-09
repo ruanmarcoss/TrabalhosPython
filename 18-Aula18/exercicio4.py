@@ -30,7 +30,7 @@ dados = cerveja[1:]
 
 
 for dados_cerveja in dados:
-<<<<<<< HEAD
+
     for i in range(4):
       print(f'{cabecalho[i]} {dados_cerveja[i]}')
 
@@ -49,22 +49,16 @@ print(receber(cerveja))
 # {'marca': 'Kaiser', 'tipo': 'Americam Larger', 'ibu': 'leve', 'preço': 2.35},
 # {'marca': 'Sol', 'tipo': 'larger mão', 'ibu': 'agua', 'preço': 1.19}
 # ]
-=======
-    print(f'{cabecalho[0]} {dados_cerveja[0]}')
-    print(f'{cabecalho[1]} {dados_cerveja[1]}')
-    print(f'{cabecalho[2]} {dados_cerveja[2]}')
-    print(f'{cabecalho[3]} {dados_cerveja[3]}')
 
-
+print(f'{cabecalho[0]} {dados_cerveja[0]}')
+print(f'{cabecalho[1]} {dados_cerveja[1]}')
+print(f'{cabecalho[2]} {dados_cerveja[2]}')
+print(f'{cabecalho[3]} {dados_cerveja[3]}')
 def dados_cerveja():
     lista = []
-    for j in range():  
-        dicionario = {}
-        for i in cerveja:
-            dicionario[i] = (f'{i}')
-        lista.append(dicionario)
+    dicionario = {}
+    for i in cerveja:
+        dicionario[i] = (f'{i}')
+    lista.append(dicionario)
     return lista
-
 dados_cerveja()
-
->>>>>>> 86996bcdae923b9d012769ee857f54a04af58d7e
