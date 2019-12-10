@@ -45,13 +45,13 @@ class Cliente:
         else:
             self.dinheiro_carteira = self.dinheiro_carteira + salario
 
-    #     print(f'Aumenta o dinheiro na carteira em R${salario}')
+    
 
-    # def comprar(self,preco):
-    #     self.dinheiro_carteira -= preco
-    #     print(f'Dinheiro da carteira diminui em R${preco}')
-    #     self.bens += preco
-    #     print(f'Os seus bens aumentam em R${preco}')
+    def comprar(self,preco):
+        if self.comprar == True:
+            self.bens = preco
+            self.dinheiro_carteira -= preco
+
         
         
     # def pagar_divida(self,valor):
@@ -60,15 +60,17 @@ class Cliente:
         
 
 p = Cliente(20,'0926457070','Marcos',25,'Masculino')
-p2 = Cliente(20,'0926457070','Pedro',25,'Masculino')
+
 
 print(f'O codigo é {p.codigo}')
 print(f'O cpf é {p.cpf}')
 print(f'O nome é {p.nome}')
 print(f'A idade é {p.idade}')
 print(f'O sexo é {p.sexo}')
-print(f'{p.dinheiro_carteira}')
+print(f'Antes de receber o salário o total é: {p.dinheiro_carteira}')
+
 
 p.dinheiro_carteira = 1500.85
 p.receber_salario(500)
-print(p.dinheiro_carteira)
+print(f'Deposi de receber o salário o total é: {p.dinheiro_carteira}')
+
