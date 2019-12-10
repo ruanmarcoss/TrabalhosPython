@@ -48,10 +48,16 @@ class Cliente:
     
 
     def comprar(self,preco):
+<<<<<<< HEAD
         if self.bens == 0:
             self.comprar = preco
         else:
             self.bens = self.comprar + preco
+=======
+        if self.comprar == True:
+            self.bens = preco
+            self.dinheiro_carteira -= preco
+>>>>>>> 7b725dde6819575a385db926bcbe2a31d360d305
 
         
         
@@ -73,7 +79,12 @@ print(f'Antes de receber o salário o total é: {p.dinheiro_carteira}')
 
 p.dinheiro_carteira = 1500.85
 p.receber_salario(500)
+<<<<<<< HEAD
 print(f'Depois de receber o salário o total é: {p.dinheiro_carteira}')
 
 p.bens(500)
 print(p.bens)
+=======
+print(f'Deposi de receber o salário o total é: {p.dinheiro_carteira}')
+
+>>>>>>> 7b725dde6819575a385db926bcbe2a31d360d305
