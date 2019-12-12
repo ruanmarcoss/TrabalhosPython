@@ -46,28 +46,21 @@ class Cliente:
             self.dinheiro_carteira = self.dinheiro_carteira + salario
 
     
-
     def comprar(self,preco):
-<<<<<<< HEAD
         if self.bens == 0:
-            self.comprar = preco
-        else:
-            self.bens = self.comprar + preco
-=======
-        if self.comprar == True:
             self.bens = preco
-            self.dinheiro_carteira -= preco
->>>>>>> 7b725dde6819575a385db926bcbe2a31d360d305
+        else:
+            self.bens = self.bens + preco
+        
+        
+    def pagar_divida(self,valor):
+        if self.divida == 0:
+            self.divida = valor
+        else:
+            self.divida = self.divida - valor
 
-        
-        
-    # def pagar_divida(self,valor):
-        
-
-        
 
 p = Cliente(20,'0926457070','Marcos',25,'Masculino')
-
 
 print(f'O codigo é {p.codigo}')
 print(f'O cpf é {p.cpf}')
@@ -79,12 +72,14 @@ print(f'Antes de receber o salário o total é: {p.dinheiro_carteira}')
 
 p.dinheiro_carteira = 1500.85
 p.receber_salario(500)
-<<<<<<< HEAD
 print(f'Depois de receber o salário o total é: {p.dinheiro_carteira}')
 
-p.bens(500)
-print(p.bens)
-=======
-print(f'Deposi de receber o salário o total é: {p.dinheiro_carteira}')
 
->>>>>>> 7b725dde6819575a385db926bcbe2a31d360d305
+p.bens = 1500
+p.comprar(100)
+print(p.bens)
+
+
+p.divida = 120
+p.pagar_divida(150)
+print(p.divida)
