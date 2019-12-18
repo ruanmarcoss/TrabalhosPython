@@ -57,12 +57,13 @@ texto = '''1;Arnaldo;23;m;alexcabeludo2@hotmail.com;014908648117
 50;Vanusa;23;m;aline_gatinha_13@yahoo.com.br;015938655596'''
 
 
-def parametro():
-    lista = []
-    for pessoa in texto:
-        pessoa = pessoa.strip().split(';')
-        dicionario = {'codigo':pessoa[0], 'nome':pessoa[1], 'idade':pessoa[2], 'sexo':pessoa[3], 'email':pessoa[4], 'telefone':pessoa[5]}
-        lista.append(dicionario)
-    return lista
-        
-print(parametro())
+def parametro(texto):
+    texto_linhas = texto.split('\n')
+    pessoa_lista = []
+    for linha in texto_linhas:
+        pessoa = linha.split(';')
+        dicionario = {'Codigo':pessoa[0], 'Nome':pessoa[1], 'Idade':pessoa[2], 'Sexo':pessoa[3], 'Email':pessoa[4], 'Telefone':pessoa[5]}
+        pessoa_lista.append(dicionario)
+    return pessoa_lista
+
+print(parametro(texto))
