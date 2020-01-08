@@ -1,0 +1,8 @@
+[Piloto,
+Oficial 1,
+Oficial 2,
+chefe de serviço de voo,
+comissária 1,
+comissária 2,
+Bandido,
+Policial]

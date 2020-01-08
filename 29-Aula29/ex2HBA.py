@@ -10,11 +10,21 @@ carro = []
 aviao = []
 terminal = [el1,el2,el3,el4,el5,el6,el7,el8]
 numero_viagem=0
+def pessoas_terminal():
+    arquivo = open('29-Aula29/pessoas_terminal.txt', 'r')
+    lista = []
+    for ler in arquivo:
+        linha = ler.strip().split(',')
+        dicionario = {'cargo':linha[0]}
+        lista.append(dicionario)
+    return lista
+print(pessoas_terminal())
+print('\n'*2)
 def viagem_fortwo():
     global numero_viagem
     numero_viagem += 1
     print(f'\n========== Viagem {numero_viagem} ==========')
-    print(f'Estão no terminal: {terminal}')
+    print(f'Estão no terminal: {(terminal)}')
 def embarque(mot, pas):
     terminal.remove(mot)
     terminal.remove(pas)    
@@ -66,3 +76,14 @@ for viagem in range(1,8):
         viagem_fortwo()
         embarques(el7,el8)
         print(f'Estão no avião: {aviao}')
+lista1 = aviao
+def pessoas_aviao(lista1):
+    arquivo = open('29-Aula29/pessoas_terminal.txt', 'a')
+    listas = []
+    for ler in arquivo:
+        linha = ler.strip().split(',')
+        dicionario = {'cargo':linha[0]}
+        listas.append(dicionario)
+    arquivo.close()
+    return listas
+print(pessoas_aviao(lista1))
