@@ -13,4 +13,4 @@ def inicio():
     enderecos = ec.listar_todos()
     return render_template('index.html', lista = pessoas, endereco = enderecos)
 
-app.run(debug=True)
+app.run()
