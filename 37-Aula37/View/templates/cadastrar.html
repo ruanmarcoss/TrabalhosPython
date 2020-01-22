@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{titulo_app}} - Cadastrar</title>
+        <link rel="stylesheet" href="../static/estilo.css">
+    </head>
+    <body>
+        <div class="conteudo">
+            <form action="/salvar" method="get">
+                <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+                <div class="descricoes"> 
+                    <label for="nome">Nome:</label>
+                </div>
+                <input type="text" name="nome" id="nome" placeholder="Digite o nome do Squad" value="{{squad.nome}}"> <br/>
+                <div class="descricoes"> 
+                    <label for="descricoes">descricoes:</label>
+                </div>
+                <input type="text" name="descricao" id="descricao" placeholder="Digite a descrição do Squad" value="{{squad.descricao}}"> <br/>
+                <div class="descricoes"> 
+                    <label for="numero_pessoas">numero_pessoas:</label>
+                </div>
+                <input type="text" name="numero_pessoas" id="numero_pessoas" placeholder="Digite apenas o número de integrantes" value="{{squad.numero_pessoas if squad.numero_pessoas != 0 else ''}}"> <br/>
+                <div class="descricoes"> 
+                    <label for="linguagem_backend">linguagem_backend:</label>
+                </div>
+                <input type="text" name="linguagem_backend" id="linguagem_backend" placeholder="Digite a Linguagem BackEnd" value="{{squad.linguagem_backend}}"> <br/>
+                <div class="descricoes"> 
+                    <label for="framework_frontend">framework_frontend:</label>
+                </div>
+                <input type="text" name="framework_frontend" id="framework_frontend" placeholder="Digite o o Framework FrontEnd" value="{{squad.framework_frontend}}"> <br/>
+                <div>
+                
+                <hr/>
+                <input type="submit" value="Salvar" class="salvar">
+                <a href="/cadastrar" class="limpar">Limpar</a>
+            </form>
+        </div>
+    </body>
+    </html>Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Cadastrar</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="conteudo">
+        <form action="/salvar" method="get">
+            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+            <div class="descricoes"> 
+                <label for="nome">Nome:</label>
+            </div>
+            <input type="text" name="descricao" id="descricao" value="{{squad.descricao}}"> <br/>
+            <div class="descricoes"> 
+                <label for="descricao">Descricao:</label>
+            </div>
+            <input type="text" name="numeropessoas" id="numeropessoas" value="{{squad.numeropessoas}}"> <br/>
+            <div class="descricoes"> 
+                <label for="numeropessoas">NumeroPessoas:</label>
+            </div>
+            <input type="text" name="linguaguembackend" id="linguaguembackend" value="{{squad.linguaguembackend}}"> <br/>
+            <input type="hidden" name="linguaguembackend" id="linguaguembackend" value="{{squad.linguaguembackend}}">
+            <div class="descricoes"> 
+                <label for="linguaguembackend">LinguaguemBackEnd:</label>
+            </div>
+            <input type="text" name="frameWorkfrontend" id="frameWorkfrontend" value="{{squad.frameWorkfrontend}}"> <br/>
+            <div class="descricoes"> 
+                <label for="frameWorkfrontend">FrameWorkFrontEnd:</label>
+
+            <hr/>
+            <input type="submit" value="Salvar" class="salvar">
+            <a href="/cadastrar" class="limpar">Limpar</a>
+        </form>
+    </div>
+</body>
+</html>

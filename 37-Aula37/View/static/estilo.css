@@ -1,0 +1,10 @@
+body{
+    background: #000000;
+    color:#ffffff;
+}
+.btn-cadastrar{
+    color:#fff;
+    background: #185201;
+    margin: 2.2 em ;
+    padding: 10px;
+    text-decoration: none;
