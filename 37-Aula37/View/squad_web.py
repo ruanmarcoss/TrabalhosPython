@@ -37,12 +37,13 @@ def excluir():
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    squad.id = request.args['id']
-    squad.nome = request.args['nome']
-    squad.descricao = request.args['descricao']
-    squad.numero_pessoas = request.args['numero_pessoas']
-    squad.linguagem_backend = request.args ['linguagem_backend']
-    squad.framework_frontend = request.args ['framework_frontend']
+    squad.Id = request.args['Id']
+    squad.Nome = request.args['Nome']
+    squad.Descricao = request.args['Descricao']
+    squad.NumeroPessoas = request.args['NumeroPessoas']
+    squad.LinguagemBackEnd = request.args ['LinguagemBackEnd']
+    squad.FrameWorkFrontEnd = request.args ['FrameworkFrontEnd']
+    return redirect('/listar')
   
 #     pessoa.endereco = end
 #     if pessoa.id == 0:

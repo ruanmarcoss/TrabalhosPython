@@ -13,26 +13,26 @@
         <table id='tabela-squad'>
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>descricoes</th>
-                    <th>numero_pessoas</th>
-                    <th>linguagem_backend</th>
-                    <th>framework_frontend</th>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>DESCRICAO</th>
+                    <th>NUMERO_PESSOAS</th>
+                    <th>LINGUAGEM_BACKEND</th>
+                    <th>FRAMEWORK_FRONTEND</th>
                 </tr>
             </thead>
             <tbody>
                 {% for s in lista %}
                 <tr>
-                    <td>{{ s.id }}</td>
-                    <td>{{ s.nome }}</td>
-                    <td>{{ s.descricoes }}</td>
-                    <td>{{ s.numero_pessoas }}</td>
-                    <td>{{ s.linguagem_backend }}</td>
-                    <td>{{ s.framework_frontend }}</td>
+                    <td>{{ s.Id }}</td>
+                    <td>{{ s.Nome }}</td>
+                    <td>{{ s.Descricao }}</td>
+                    <td>{{ s.NumeroPessoas }}</td>
+                    <td>{{ s.LinguagemBackEnd }}</td>
+                    <td>{{ s.FrameWorkFrontEnd }}</td>
                     <td>
-                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ s.id }}" class="excluir">Excluir</a>
+                        <a href="/cadastrar?id={{ s.Id }}" class="editar">Editar</a>
+                        <a href="/excluir?id={{ s.Id }}" class="excluir">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}

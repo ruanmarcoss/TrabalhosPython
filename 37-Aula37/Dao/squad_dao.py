@@ -8,14 +8,14 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM squad "
+        comando_sql = f"SELECT * FROM squad"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
         
     
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM squad WHERE P.ID = {id}"
+        comando = f"SELECT * FROM squad WHERE ID = {id}"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
@@ -23,20 +23,20 @@ class SquadDao:
     def salvar(self, squad:Squad):
         comando_sql = f""" INSERT INTO squad
         (
-            NOME,
-            DESCRICAO,
-            NUMERO_PESSOAS,
-            LINGUAGEM_BACKEND,
-            FRAMEWORK_FRONTEND 
+            Nome,
+            Descricao,
+            NumeroPessoas,
+            LinguagemBackEnd,
+            FrameWorkFrontEnd 
             )
             
         VALUES
         (
-            '{squad.nome}',
-            '{squad.descricao}',
-            {squad.numero_pessoas},
-            {squad.linguagem_BackEnd}
-            {squad.framework_FrontEnd}
+            '{squad.Nome}',
+            '{squad.Descricao}',
+            {squad.NumeroPessoas},
+            '{squad.LinguagemBackEnd}',
+            '{squad.FrameWorkFrontEnd}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -46,11 +46,11 @@ class SquadDao:
     def alterar(self, squad:Squad):
         comando_sql = f""" UPDATE squad
         SET
-            NOME = '{squad.nome}',
-            DESCRICAO = {squad.descricao}
-            NUMERO_PESSOAS ='{squad.numero_pessoas}',
-            LINGUAGEM_BACKEND = {squad.linguagem_BackEnd},
-            FRAMEWORK_FRONTEND = {squad.framework_FrontEnd}
+            Nome = '{squad.Nome}'
+            Descricao = '{squad.Descricao}'
+            NumeroPessoas = {squad.NumeroPessoas}
+            LinguagemBackEnd = '{squad.LinguagemBackEnd}'
+            FrameWorkFrontEnd  = '{squad.FrameWorkFrontEnd}'
         WHERE ID = {squad.id}
         """
         self.cursor.execute(comando_sql)
