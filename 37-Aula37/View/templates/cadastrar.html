@@ -11,6 +11,7 @@
     <div class="conteudo">
         <form action="/salvar" method="get">
             <input type="hidden" name="Id" id="Id" value="{{squad.Id}}"> <br/>
+            
             <div class="descricoes"> 
                 <label for="Nome">Nome:</label>
             </div>
@@ -22,7 +23,7 @@
             <div class="descricoes"> 
                 <label for="NumeroPessoas">Número Pessoas:</label>
             </div>
-            <input type="text" name="NumeroPessoas" id="NumeroPessoas" placeholder="Número de integrantes" value="{{squad.NumeroPessoas if squad.NumeroPessoas != 0 else ''}}"> <br/>
+            <input type="text" name="NumeroPessoas" id="NumeroPessoas" placeholder="Número de integrantes" value="{{squad.NumeroPessoas}}"> <br/>
             <div class="descricoes"> 
                 <label for="linguagem_backend">Linguaem BackEnd:</label>
             </div>
@@ -30,7 +31,7 @@
             <div class="descricoes"> 
                 <label for="FrameworkFrontEnd">Framework FrontEnd:</label>
             </div>
-            <input type="text" name="FrameworkFrontEnd" id="FrameworkFrontEnd" placeholder="Framework FrontEnd" value="{{squad.FrameworkFrontEnd}}"> <br/>
+            <input type="text" name="FrameworkFrontEnd" id="FrameworkFrontEnd" placeholder="Framework FrontEnd" value="{{squad.FrameWorkFrontEnd}}"> <br/>
             <div>
             
             <hr/>

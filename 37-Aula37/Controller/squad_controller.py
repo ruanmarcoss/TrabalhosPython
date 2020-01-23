@@ -33,11 +33,9 @@ class SquadController:
         return squad
 
     def salvar(self, squad:Squad):
-        squad.id = self.squad_controller.salvar(salvar)
         return self.dao.salvar(squad)
 
     def alterar(self, squad:Squad):
-        self.squad_controller.alterar(salvar)
         self.dao.alterar(squad)
 
     def deletar(self, id):

@@ -3,6 +3,7 @@ import sys
 sys.path.append(r'C:\Users\900160\Documents\TrabalhosPython\TrabalhosPython\37-Aula37')
 from Controller.squad_controller import SquadController
 from Model.squad_model import Squad
+from Dao.squad_dao import SquadDao
 
 app = Flask(__name__)
 squad_controller = SquadController()
@@ -30,26 +31,25 @@ def cadastrar():
 def excluir():
     id = int(request.args['id'])
     squad_controller.deletar(id)
-    if id_squad != 'None':
-        squad_controller.deletar(id_squad)
+    if id != 'None':
+        squad_controller.deletar(id)
     return redirect('/listar')
 
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    squad.Id = request.args['Id']
+    squad.Id = int(request.args['Id'])
     squad.Nome = request.args['Nome']
     squad.Descricao = request.args['Descricao']
     squad.NumeroPessoas = request.args['NumeroPessoas']
-    squad.LinguagemBackEnd = request.args ['LinguagemBackEnd']
-    squad.FrameWorkFrontEnd = request.args ['FrameworkFrontEnd']
-    return redirect('/listar')
+    squad.LinguagemBackEnd = request.args['LinguagemBackEnd']
+    squad.FrameWorkFrontEnd = request.args['FrameworkFrontEnd']
+    
   
-#     pessoa.endereco = end
-#     if pessoa.id == 0:
-#         pessoa_controller.salvar(pessoa)
-#     else:
-#         pessoa_controller.alterar(pessoa)
-#     return redirect('/listar')
+    if squad.Id == 0:
+        squad_controller.salvar(squad)
+    else:
+        squad_controller.alterar(squad)
+    return redirect('/listar')
 
 app.run(debug=True)
