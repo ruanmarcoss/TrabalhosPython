@@ -38,12 +38,13 @@ def excluir():
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    squad.Id = int(request.args['Id'])
-    squad.Nome = request.args['Nome']
-    squad.Descricao = request.args['Descricao']
-    squad.NumeroPessoas = request.args['NumeroPessoas']
-    squad.LinguagemBackEnd = request.args['LinguagemBackEnd']
-    squad.FrameWorkFrontEnd = request.args['FrameworkFrontEnd']
+    squad.id = int(request.args['id'])
+    squad.nome = request.args['nome']
+    squad.descricao = request.args['descricao']
+    squad.numero_pessoas = int(request.args['numero_pessoas'])
+    squad.fk_linguagem_backend = int(request.args['fk_linguagem_backend'])
+    squad.fk_framework_frontend = int(request.args['fk_framework_frontend'])
+    squad.fk_sgbds = int(request.args['fk_sgbds'])
     
   
     if squad.Id == 0:

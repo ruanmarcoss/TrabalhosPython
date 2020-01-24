@@ -12,24 +12,26 @@ class SquadController:
         lista_tuplas = self.dao.listar_todos()
         for s in lista_tuplas:
             squad = Squad()
-            squad.Id = s[0]
-            squad.Nome = s[1]
-            squad.Descricao = s[2]
-            squad.NumeroPessoas = s[3]
-            squad.LinguagemBackEnd = s[4]
-            squad.FrameWorkFrontEnd = s[5]         
+            squad.id = s[0]
+            squad.nome = s[1]
+            squad.descricao = s[2]
+            squad.numero_pessoas = s[3]
+            squad.fk_linguagem_backend = s[4]
+            squad.fk_framework_frontend = s[5]
+            squad.fk_sgbds = s[6]
             lista_squad.append(squad)
         return lista_squad
 
     def buscar_por_id(self, id):
         s = self.dao.buscar_por_id(id)
         squad = Squad()
-        squad.Id = s[0]
-        squad.Nome = s[1]
-        squad.Descricao = s[2]
-        squad.NumeroPessoas = s[3]
-        squad.LinguagemBackEnd = s[4]
-        squad.FrameWorkFrontEnd = s[5] 
+        squad.id = s[0]
+        squad.nome = s[1]
+        squad.descricao = s[2]
+        squad.numero_pessoas = s[3]
+        squad.fk_linguagem_backend = s[4]
+        squad.fk_framework_frontend = s[5]
+        squad.fk_sgbds = s[6] 
         return squad
 
     def salvar(self, squad:Squad):

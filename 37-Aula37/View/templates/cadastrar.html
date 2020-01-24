@@ -10,28 +10,32 @@
 <body>
     <div class="conteudo">
         <form action="/salvar" method="get">
-            <input type="hidden" name="Id" id="Id" value="{{squad.Id}}"> <br/>
+            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
             
             <div class="descricoes"> 
-                <label for="Nome">Nome:</label>
+                <label for="nome">nome:</label>
             </div>
-            <input type="text" name="Nome" id="Nome" placeholder="Nome do Squad" value="{{squad.Nome}}"> <br/>
+            <input type="text" name="nome" id="nome" placeholder="Nome do Squad" value="{{squad.nome}}"> <br/>
             <div class="descricoes"> 
                 <label for="descricao">Descrição:</label>
             </div>
-            <input type="text" name="Descricao" id="Descricao" placeholder="Descrição do Squad" value="{{squad.Descricao}}"> <br/>
+            <input type="text" name="descricao" id="descricao" placeholder="Descrição do Squad" value="{{squad.descricao}}"> <br/>
             <div class="descricoes"> 
-                <label for="NumeroPessoas">Número Pessoas:</label>
+                <label for="numero_pessoas">Número Pessoas:</label>
             </div>
-            <input type="text" name="NumeroPessoas" id="NumeroPessoas" placeholder="Número de integrantes" value="{{squad.NumeroPessoas}}"> <br/>
+            <input type="text" name="numero_pessoas" id="numero_pessoas" placeholder="Número de integrantes" value="{{squad.numero_pessoas}}"> <br/>
             <div class="descricoes"> 
-                <label for="linguagem_backend">Linguaem BackEnd:</label>
+                <label for="fk_linguagem_backend">Linguaem BackEnd:</label>
             </div>
-            <input type="text" name="LinguagemBackEnd" id="LinguagemBackEnd" placeholder="Linguagem BackEnd" value="{{squad.LinguagemBackEnd}}"> <br/>
+            <input type="text" name="fk_linguagem_backend" id="fk_linguagem_backend" placeholder="Linguagem BackEnd" value="{{squad.fk_linguagem_backend}}"> <br/>
             <div class="descricoes"> 
-                <label for="FrameworkFrontEnd">Framework FrontEnd:</label>
+                <label for="fk_framework_frontend">Framework FrontEnd:</label>
             </div>
-            <input type="text" name="FrameworkFrontEnd" id="FrameworkFrontEnd" placeholder="Framework FrontEnd" value="{{squad.FrameWorkFrontEnd}}"> <br/>
+            <input type="text" name="fk_framework_frontend" id="fk_framework_frontend" placeholder="Framework FrontEnd" value="{{squad.fk_framework_frontend}}"> <br/>
+            <div>
+                <label for="fk_sgbds">SGBDS:</label>
+            </div>
+                <input type="text" name="fk_sgbds" id="fk_sgbds" placeholder="SGBDS" value="{{squad.fk_sgbds}}"> <br/>
             <div>
             
             <hr/>

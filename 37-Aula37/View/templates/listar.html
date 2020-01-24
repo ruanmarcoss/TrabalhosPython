@@ -19,20 +19,22 @@
                     <th>NUMERO_PESSOAS</th>
                     <th>LINGUAGEM_BACKEND</th>
                     <th>FRAMEWORK_FRONTEND</th>
+                    <th>SGBDS</th>
                 </tr>
             </thead>
             <tbody>
                 {% for s in lista %}
                 <tr>
-                    <td>{{ s.Id }}</td>
-                    <td>{{ s.Nome }}</td>
-                    <td>{{ s.Descricao }}</td>
-                    <td>{{ s.NumeroPessoas }}</td>
-                    <td>{{ s.LinguagemBackEnd }}</td>
-                    <td>{{ s.FrameWorkFrontEnd }}</td>
+                    <td>{{ s.id }}</td>
+                    <td>{{ s.nome }}</td>
+                    <td>{{ s.descricao }}</td>
+                    <td>{{ s.numero_pessoas }}</td>
+                    <td>{{ s.fk_linguaguem_backend }}</td>
+                    <td>{{ s.fk_framework }}</td>
+                    <td>{{ s.fk_sgbds }}</td>
                     <td>
-                        <a href="/cadastrar?id={{ s.Id }}" class='btn-cadastro'>Editar</a>
-                        <a href="/excluir?id={{ s.Id }}" class='btn-cadastro'>Excluir</a>
+                        <a href="/cadastrar?id={{ s.id }}" class='btn-cadastro'>Editar</a>
+                        <a href="/excluir?id={{ s.id }}" class='btn-cadastro'>Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}

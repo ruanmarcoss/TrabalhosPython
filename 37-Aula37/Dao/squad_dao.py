@@ -4,39 +4,42 @@ import MySQLdb
 from Model.squad_model import Squad
 
 class SquadDao:
-    conexao = MySQLdb.connect(host= '127.0.0.1', database= 'squads', user='root')
+    conexao = MySQLdb.connect(host= 'mysql.padawans.dev', database= 'padawans15', user='padawans15' , passwd='rd2019')
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM squad"
+        comando_sql = f"SELECT * FROM cadastrosquad AS C LEFT JOIN fkbackend AS FKB ON C.fk_linguagem_backend = FKB.id \
+                        SELECT * FROM cadastrosquad AS C LEFT JOIN fkfrontend AS FKB ON C.fk_framework_frontend = FKF.id \
+                        SELECT * FROM cadastrosquad AS C LEFT JOIN sgbds AS FKB ON C.fk_sgbds = FKS.id"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
-        
-    
+
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM squad WHERE ID = {id}"
+        comando = f"SELECT * FROM cadastrosquad WHERE ID = {id}"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, squad:Squad):
-        comando_sql = f""" INSERT INTO squad
+        comando_sql = f""" INSERT INTO cadastrosquad
         (
-            Nome,
-            Descricao,
-            NumeroPessoas,
-            LinguagemBackEnd,
-            FrameWorkFrontEnd 
+            nome,
+            descricao,
+            numero_pessoas,
+            fk_linguagem_backend,
+            fk_framework_frontend,
+            fk_sgbds 
             )
             
         VALUES
         (
-            '{squad.Nome}',
-            '{squad.Descricao}',
-            {squad.NumeroPessoas},
-            '{squad.LinguagemBackEnd}',
-            '{squad.FrameWorkFrontEnd}'
+            '{squad.nome}',
+            '{squad.descricao}',
+            {squad.numero_pessoas},
+            {squad.fk_linguagem_backend},
+            {squad.fk_framework_frontend},
+            {squad.fk_sgbds}
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -44,20 +47,21 @@ class SquadDao:
         return novo_squad
 
     def alterar(self, squad:Squad):
-        comando_sql = f""" UPDATE squad
+        comando_sql = f""" UPDATE cadastrosquad
         SET
-            Nome = '{squad.Nome}',
-            Descricao = '{squad.Descricao}',
-            NumeroPessoas = {squad.NumeroPessoas},
-            LinguagemBackEnd = '{squad.LinguagemBackEnd}',
-            FrameWorkFrontEnd  = '{squad.FrameWorkFrontEnd}'
-        WHERE ID = {squad.Id}
+            nome = '{squad.nome}',
+            descricao = '{squad.descricao}',
+            numero_pessoas = {squad.numero_pessoas},
+            fk_linguagem_backend = {squad.fk_linguagem_backend},
+            fk_framework_frontend = {squad.fk_framework_frontend},
+            fk_sgbds = {squad.fk_sgbds}
+        WHERE ID = {squad.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
     def deletar(self, id):
-        comando_sql = f"DELETE FROM squad WHERE ID = {id}"
+        comando_sql = f"DELETE FROM cadastrosquad WHERE ID = {id}"
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
