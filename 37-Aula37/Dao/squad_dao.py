@@ -1,16 +1,23 @@
+import MySQLdb
 import sys
 sys.path.append(r'C:\Users\900160\Documents\TrabalhosPython\TrabalhosPython\37-Aula37')
-import MySQLdb
 from Model.squad_model import Squad
+from Model.model_backend import BackEnd
+from Model.model_frontend import FrontEnd
+from Model.model_sgbds import Sgbds
+from Dao.dao_backend import BackEndDao
+from Dao.dao_frontend import FrontEndDao
+from Dao.dao_sgbds import SgbdsDao
+
 
 class SquadDao:
     conexao = MySQLdb.connect(host= 'mysql.padawans.dev', database= 'padawans15', user='padawans15' , passwd='rd2019')
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM cadastrosquad AS C LEFT JOIN fkbackend AS FKB ON C.fk_linguagem_backend = FKB.id \
-                        SELECT * FROM cadastrosquad AS C LEFT JOIN fkfrontend AS FKB ON C.fk_framework_frontend = FKF.id \
-                        SELECT * FROM cadastrosquad AS C LEFT JOIN sgbds AS FKB ON C.fk_sgbds = FKS.id"
+        comando_sql = f"SELECT * FROM cadastrosquad as C LEFT JOIN fkbackend as FKB on C.fk_linguagem_backend = FKB.id " \
+                        " INNER JOIN fkfrontend as FKF on C.fk_framework_frontend = FKF.id " \
+                        " INNER JOIN fksgbds as FKS on C.fk_sgbds = FKS.id;"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado

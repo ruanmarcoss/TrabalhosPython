@@ -2,10 +2,22 @@ import sys
 sys.path.append(r'C:\Users\900160\Documents\TrabalhosPython\TrabalhosPython\37-Aula37')
 from Dao.squad_dao import SquadDao
 from Model.squad_model import Squad
+from Model.model_backend import BackEnd
+from Model.model_frontend import FrontEnd
+from Model.model_sgbds import Sgbds
+from Dao.dao_backend import BackEndDao
+from Dao.dao_frontend import FrontEndDao
+from Dao.dao_sgbds import SgbdsDao
 
 class SquadController:
     dao = SquadDao()
     model = Squad()
+    # backend = BackEndDao()
+    # frontend= FrontEndDao()
+    # sgbds = SgbdsDao()
+    # backend_model = BackEnd()
+    # frontend_model = FrontEnd()
+    # sgbds_model = Sgbds()
     
     def listar_todos(self):
         lista_squad = []

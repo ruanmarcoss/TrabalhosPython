@@ -4,11 +4,11 @@ class Squad:
         self.nome = ''
         self.descricao = ''
         self.numero_pessoas = 0
-        self.fk_linguagem_backend = ''
-        self.fk_framework_frontend = ''
-        self.fk_sgbds = ''
+        self.fk_linguagem_backend = 0
+        self.fk_framework_frontend = 0
+        self.fk_sgbds = 0
 
     def __str__(self):
         return f'{self.id};{self.nome};{self.descricao};{self.numero_pessoas};{self.fk_linguagem_backend};{self.fk_framework_frontend};{self.fk_sgbds}'
 
-squad = Squad()        
+squad = Squad()    
