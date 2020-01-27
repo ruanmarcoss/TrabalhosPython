@@ -27,10 +27,10 @@ class BackEndController:
         return squad
 
     def salvar_backend(self, squad:Squad):
-        return self.dao.salvar(squad)
+        return self.dao.salvar_backend(squad)
 
     def alterar_backend(self, squad:Squad):
-        self.dao.alterar(squad)
+        self.dao.alterar_backend(squad)
 
     def deletar_backend(self, id):
-        self.dao.deletar(id)
+        self.dao.deletar_backend(id)

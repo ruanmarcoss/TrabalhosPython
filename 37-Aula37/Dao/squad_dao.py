@@ -15,15 +15,51 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM cadastrosquad as C LEFT JOIN fkbackend as FKB on C.fk_linguagem_backend = FKB.id " \
-                        " INNER JOIN fkfrontend as FKF on C.fk_framework_frontend = FKF.id " \
-                        " INNER JOIN fksgbds as FKS on C.fk_sgbds = FKS.id;"
+        comando_sql = f"""SELECT 
+                            s.id
+                            ,s.nome
+                            ,s.descricao
+                            ,s.numero_pessoas
+                            ,b.id
+                            ,b.nome
+                            ,f.id
+                            ,f.nome
+                            ,sg.id
+                            ,sg.nome
+                            FROM padawans15.cadastrosquad as s
+                            right join fkbackend as b
+                            on s.fk_linguagem_backend = b.id
+                            right join fkfrontend as f
+                            on s.fk_framework_frontend = f.id
+                            right join fksgbds as sg
+                            on s.fk_sgbds = sg.id; """
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
 
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM cadastrosquad WHERE ID = {id}"
+        comando = f"""SELECT 
+                            s.id
+                            ,s.nome
+                            ,s.descricao
+                            ,s.numero_pessoas
+                            ,b.id
+                            ,b.nome
+                            ,f.id
+                            ,f.nome
+                            ,sg.id
+                            ,sg.nome
+                            FROM padawans15.cadastrosquad as s
+                            right join fkbackend as b
+                            on s.fk_linguagem_backend = b.id
+                            right join fkfrontend as f
+                            on s.fk_framework_frontend = f.id
+                            right join fksgbds as sg
+                            on s.fk_sgbds = sg.id;
+                        WHERE ID = {id}"""
+        # comando = f"SELECT * FROM cadastrosquad as C LEFT JOIN fkbackend as FKB on C.fk_linguagem_backend WHERE ID = {id}" \
+        #                 " INNER JOIN fkfrontend as FKF on C.fk_framework_frontend WHERE ID = {id} " \
+        #                 " INNER JOIN fksgbds as FKS on C.fk_sgbds WHERE ID = {id};"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
@@ -74,3 +110,8 @@ class SquadDao:
 
 # listar_todos(conexao, cursor)
 # buscar_por_id(conexao, cursor, 1)
+
+
+if __name__ == "__main__":
+    teste = SquadDao()
+    print(teste.listar_todos())

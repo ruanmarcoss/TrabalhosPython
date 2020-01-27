@@ -26,10 +26,10 @@ class SgbdsController:
         return squad
 
     def salvar_sgbds(self, squad:Squad):
-        return self.dao.salvar(squad)
+        return self.dao.salvar_sgbds(squad)
 
     def alterar_sgbds(self, squad:Squad):
-        self.dao.alterar(squad)
+        self.dao.alterar_sgbds(squad)
 
     def deletar_sgbds(self, id):
-        self.dao.deletar(id)
+        self.dao.deletar_sgbds(id)

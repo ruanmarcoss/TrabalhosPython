@@ -28,9 +28,9 @@ class SquadController:
             squad.nome = s[1]
             squad.descricao = s[2]
             squad.numero_pessoas = s[3]
-            squad.fk_linguagem_backend = s[4]
-            squad.fk_framework_frontend = s[5]
-            squad.fk_sgbds = s[6]
+            squad.fk_linguagem_backend.id = s[4]
+            squad.fk_framework_frontend.id = s[5]
+            squad.fk_sgbds.id = s[6]
             lista_squad.append(squad)
         return lista_squad
 
@@ -41,9 +41,8 @@ class SquadController:
         squad.nome = s[1]
         squad.descricao = s[2]
         squad.numero_pessoas = s[3]
-        squad.fk_linguagem_backend = s[4]
-        squad.fk_framework_frontend = s[5]
-        squad.fk_sgbds = s[6] 
+        squad.fk_linguagem_backend.id = s[4]
+        squad.fk_linguagem_backend.nome = s[5]
         return squad
 
     def salvar(self, squad:Squad):

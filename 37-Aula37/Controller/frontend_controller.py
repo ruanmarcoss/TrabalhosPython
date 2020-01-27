@@ -27,10 +27,10 @@ class FrontEndController:
         return squad
 
     def salvar_frontend(self, squad:Squad):
-        return self.dao.salvar(squad)
+        return self.dao.salvar_frontend(squad)
 
     def alterar_frontend(self, squad:Squad):
-        self.dao.alterar(squad)
+        self.dao.alterar_frontend(squad)
 
     def deletar_frontend(self, id):
-        self.dao.deletar(id)
+        self.dao.deletar_frontend(id)

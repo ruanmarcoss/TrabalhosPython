@@ -16,9 +16,9 @@
                     <th>ID</th>
                     <th>NOME</th>
                     <th>DESCRICAO</th>
-                    <th>NUMERO_PESSOAS</th>
-                    <th>LINGUAGEM_BACKEND</th>
-                    <th>FRAMEWORK_FRONTEND</th>
+                    <th>NUMERO PESSOAS</th>
+                    <th>LINGUAGEM BACKEND</th>
+                    <th>FRAMEWORK FRONTEND</th>
                     <th>SGBDS</th>
                 </tr>
             </thead>
@@ -29,9 +29,9 @@
                     <td>{{ s.nome }}</td>
                     <td>{{ s.descricao }}</td>
                     <td>{{ s.numero_pessoas }}</td>
-                    <td>{{ s.fk_linguaguem_backend }}</td>
-                    <td>{{ s.fk_framework }}</td>
-                    <td>{{ s.fk_sgbds }}</td>
+                    <td>{{ s.fk_linguagem_backend.nome }}</td>                   
+                    <td>{{ s.fk_framework_frontend.nome }}</td>
+                    <td>{{ s.fk_sgbds.nome }}</td>
                     <td>
                         <a href="/cadastrar?id={{ s.id }}" class='btn-cadastro'>Editar</a>
                         <a href="/excluir?id={{ s.id }}" class='btn-cadastro'>Excluir</a>
