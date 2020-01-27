@@ -38,12 +38,16 @@ def listar():
 @app.route('/cadastrar')
 def cadastrar():
     squad = Squad()
-    backend = BackEnd()
-    frontend = FrontEnd()
-    sgbds = Sgbds()
+    # backend = BackEnd()
+    # frontend = FrontEnd()
+    # sgbds = Sgbds()
     if 'id' in request.args:
         id = request.args['id']
         squad = squad_controller.buscar_por_id(id)
+        # backend = backend_controller.buscar_id_backend(id)
+        # frontend = frontend_controller.buscar_id_frontend(id)
+        # sgbds = sgbds_controller.buscar_id_sgbds(id)
+
     return render_template('cadastrar.html', titulo_app = nome, squad = squad)
 
 
@@ -56,23 +60,23 @@ def excluir():
     sgbds_controller.deletar_sgbds(id)
     if id != 'None':
         squad_controller.deletar(id)
-        backend_controller.deletar_backend(id)
-        frontend_controller.deletar_frontend(id)
-        sgbds_controller.deletar_sgbds(id)
+        # backend_controller.deletar_backend(id)
+        # frontend_controller.deletar_frontend(id)
+        # sgbds_controller.deletar_sgbds(id)
     return redirect('/listar')
 
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    backend = BackEnd()
-    frontend = FrontEnd()
-    sgbds = Sgbds()
+    # backend = BackEnd()
+    # frontend = FrontEnd()
+    # sgbds = Sgbds()
     squad.id = int(request.args['id'])
     squad.nome = request.args['nome']
     squad.descricao = request.args['descricao']
     squad.numero_pessoas = int(request.args['numero_pessoas'])
-    squad.fk_linguagem_backend = int(request.args['fk_linguagem_backend'])
-    squad.fk_framework_frontend = int(request.args['fk_framework_frontend'])
+    squad.fk_linguagem_backend = int(request.args['backend'])
+    squad.fk_framework_frontend = int(request.args['framework'])
     squad.fk_sgbds = int(request.args['fk_sgbds'])
     
   
