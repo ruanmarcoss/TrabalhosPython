@@ -27,18 +27,18 @@ class SquadDao:
                             ,sg.id
                             ,sg.nome
                             FROM padawans15.cadastrosquad as s
-                            right join fkbackend as b
+                            join fkbackend as b
                             on s.fk_linguagem_backend = b.id
-                            right join fkfrontend as f
+                            join fkfrontend as f
                             on s.fk_framework_frontend = f.id
-                            right join fksgbds as sg
-                            on s.fk_sgbds = sg.id; """
+                            join fksgbds as sg
+                            on s.fk_sgbds = sg.id """
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
 
     def buscar_por_id(self, id):
-        comando = f"""SELECT 
+        comando_sql = f"""SELECT 
                             s.id
                             ,s.nome
                             ,s.descricao
@@ -50,17 +50,14 @@ class SquadDao:
                             ,sg.id
                             ,sg.nome
                             FROM padawans15.cadastrosquad as s
-                            right join fkbackend as b
+                            join fkbackend as b
                             on s.fk_linguagem_backend = b.id
-                            right join fkfrontend as f
+                            join fkfrontend as f
                             on s.fk_framework_frontend = f.id
-                            right join fksgbds as sg
-                            on s.fk_sgbds = sg.id;
-                        WHERE ID = {id}"""
-        # comando = f"SELECT * FROM cadastrosquad as C LEFT JOIN fkbackend as FKB on C.fk_linguagem_backend WHERE ID = {id}" \
-        #                 " INNER JOIN fkfrontend as FKF on C.fk_framework_frontend WHERE ID = {id} " \
-        #                 " INNER JOIN fksgbds as FKS on C.fk_sgbds WHERE ID = {id};"
-        self.cursor.execute(comando)
+                            sjoin fksgbds as sg
+                            on s.fk_sgbds = sg.id
+                        WHERE id = {id}"""
+        self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado
 
@@ -98,13 +95,13 @@ class SquadDao:
             fk_linguagem_backend = {squad.fk_linguagem_backend},
             fk_framework_frontend = {squad.fk_framework_frontend},
             fk_sgbds = {squad.fk_sgbds}
-        WHERE ID = {squad.id}
+        WHERE id = {squad.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
     def deletar(self, id):
-        comando_sql = f"DELETE FROM cadastrosquad WHERE ID = {id}"
+        comando_sql = f"DELETE FROM cadastrosquad WHERE id = {id}"
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
@@ -112,6 +109,6 @@ class SquadDao:
 # buscar_por_id(conexao, cursor, 1)
 
 
-if __name__ == "__main__":
-    teste = SquadDao()
-    print(teste.listar_todos())
+# if __name__ == "__main__":
+#     teste = SquadDao()
+#     print(teste.listar_todos())

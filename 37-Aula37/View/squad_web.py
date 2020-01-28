@@ -33,7 +33,7 @@ def listar():
     backend = backend_controller.listar_backend()
     frontend = frontend_controller.listar_frontend()
     sgbds = sgbds_controller.listar_sgbds()
-    return render_template('listar.html', titulo_app = nome, lista = squad, lista1 = backend, lista2 = frontend, lista3 = sgbds)
+    return render_template('listar.html', titulo_app = nome, lista = squad)
 
 @app.route('/cadastrar')
 def cadastrar():
@@ -51,41 +51,26 @@ def cadastrar():
 def excluir():
     id = int(request.args['id'])
     squad_controller.deletar(id)
-    backend_controller.deletar_backend(id)
-    frontend_controller.deletar_frontend(id)
-    sgbds_controller.deletar_sgbds(id)
     if id != 'None':
         squad_controller.deletar(id)
-        backend_controller.deletar_backend(id)
-        frontend_controller.deletar_frontend(id)
-        sgbds_controller.deletar_sgbds(id)
     return redirect('/listar')
 
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    backend = BackEnd()
-    frontend = FrontEnd()
-    sgbds = Sgbds()
     squad.id = int(request.args['id'])
     squad.nome = request.args['nome']
     squad.descricao = request.args['descricao']
     squad.numero_pessoas = int(request.args['numero_pessoas'])
-    squad.fk_linguagem_backend = int(request.args['fk_linguagem_backend'])
-    squad.fk_framework_frontend = int(request.args['fk_framework_frontend'])
-    squad.fk_sgbds = int(request.args['fk_sgbds'])
+    squad.fk_linguagem_backend = (request.args['fk_linguagem_backend.nome'])
+    squad.fk_framework_frontend = (request.args['fk_framework_frontend.nome'])
+    squad.fk_sgbds = (request.args['fk_sgbds.nome'])
     
   
     if squad.id == 0:
         squad_controller.salvar(squad)
-        backend_controller.salvar_backend(squad)
-        frontend_controller.salvar_frontend(squad)
-        sgbds_controller.salvar_sgbds(squad)
     else:
         squad_controller.alterar(squad)
-        backend_controller.alterar_backend(squad)
-        frontend_controller.alterar_frontend(squad)
-        sgbds_controller.alterar_sgbds(squad)
     return redirect('/listar')
 
 app.run(debug=True)

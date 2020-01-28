@@ -12,6 +12,7 @@ class BackEndController:
     def listar_backend(self):
         lista_backend = []
         lista_tuplas = self.dao.listar_backend()
+        print(lista_tuplas)
         for s in lista_tuplas:
             squad = Squad()
             squad.id = s[0]

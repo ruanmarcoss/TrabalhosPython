@@ -22,15 +22,16 @@ class SquadController:
     def listar_todos(self):
         lista_squad = []
         lista_tuplas = self.dao.listar_todos()
+        print(lista_tuplas)
         for s in lista_tuplas:
             squad = Squad()
             squad.id = s[0]
             squad.nome = s[1]
             squad.descricao = s[2]
             squad.numero_pessoas = s[3]
-            squad.fk_linguagem_backend.id = s[4]
-            squad.fk_framework_frontend.id = s[5]
-            squad.fk_sgbds.id = s[6]
+            squad.fk_linguagem_backend.nome = s[5]
+            squad.fk_framework_frontend.nome = s[7]
+            squad.fk_sgbds.nome = s[9]
             lista_squad.append(squad)
         return lista_squad
 
@@ -41,8 +42,12 @@ class SquadController:
         squad.nome = s[1]
         squad.descricao = s[2]
         squad.numero_pessoas = s[3]
-        squad.fk_linguagem_backend.id = s[4]
+        squad.fk_linguagem_backend.id= s[4]
         squad.fk_linguagem_backend.nome = s[5]
+        squad.fk_framework_frontend.id = s[6]
+        squad.fk_framework_frontend.nome = s[7]
+        squad.fk_sgbds.id= s[8]
+        squad.fk_sgbds.nome = s[9]
         return squad
 
     def salvar(self, squad:Squad):
