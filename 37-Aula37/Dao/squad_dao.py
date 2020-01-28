@@ -27,12 +27,21 @@ class SquadDao:
                             ,sg.id
                             ,sg.nome
                             FROM padawans15.cadastrosquad as s
+<<<<<<< HEAD
                             join fkbackend as b
                             on s.fk_linguagem_backend = b.id
                             join fkfrontend as f
                             on s.fk_framework_frontend = f.id
                             join fksgbds as sg
                             on s.fk_sgbds = sg.id """
+=======
+                            left join fkbackend as b
+                            on s.fk_linguagem_backend = b.id
+                            left join fkfrontend as f
+                            on s.fk_framework_frontend = f.id
+                            left join fksgbds as sg
+                            on s.fk_sgbds = sg.id; """
+>>>>>>> d696271da183511b169fe42cb84e76b349e3e37d
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
@@ -106,9 +115,13 @@ class SquadDao:
         self.conexao.commit()
 
 # listar_todos(conexao, cursor)
+<<<<<<< HEAD
 # buscar_por_id(conexao, cursor, 1)
 
 
 # if __name__ == "__main__":
 #     teste = SquadDao()
 #     print(teste.listar_todos())
+=======
+# buscar_por_id(conexao, cursor, 1)
+>>>>>>> d696271da183511b169fe42cb84e76b349e3e37d
