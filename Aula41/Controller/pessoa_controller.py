@@ -1,15 +1,15 @@
-"""""
 from flask_restful import Resource
 
-from Dao.pessoa_dao import PessoaDao
+from TrabalhosPython.Aula41.Dao.pessoa_dao import PessoaDao
 
 class PessoaController(Resource):#Utilizando o Resource como argumento, está fazendo uma herença na classe
     def __init__(self):
         self.dao = PessoaDao()
 
-    def get(self):
-        msg = self.dao.list_all()
-        return msg
+    def get(self, id=None):
+        if id:
+            return self.dao.get_by_id(id)
+        return self.dao.list_all()
 
     def post(self):
         msg = self.dao.insert('')
@@ -20,6 +20,5 @@ class PessoaController(Resource):#Utilizando o Resource como argumento, está fa
         return msg
 
     def delete(self):
-        msg = self.dao.remove(10)
+        msg = self.dao.delete()
         return msg
-"""""
