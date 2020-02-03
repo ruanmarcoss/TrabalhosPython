@@ -11,6 +11,6 @@ api.add_resource(PessoaController, '/api/controller/<int:id>', endpoint='pessoa'
 
 @app.route('/')
 def inicio():
-    return 'Bem vindo a controller'
+    return 'Teste api '
 
 app.run(debug=True, port=80)

@@ -4,11 +4,11 @@ from TrabalhosPython.Aula41.Model.pessoa_model import PessoaModel
 
 class PessoaDao:
     def __init__(self):
-        self.connection = MySQLdb.connect(host='mysql.topskills.dev',database='topskills01',user='topskills01',passwd='ts2019')
+        self.connection = MySQLdb.connect(host='127.0.0.1',database='pessoa',user='root',passwd='')
         self.cursor = self.connection.cursor()
 
     def list_all(self):
-        self.cursor.execute("SELECT * FROM 01_MDG_PESSOA")
+        self.cursor.execute("SELECT * FROM pessoa")
         pessoas = self.cursor.fetchall()
         lista_pessoa = []
         for p in pessoas:
@@ -17,19 +17,38 @@ class PessoaDao:
         return lista_pessoa
 
     def get_by_id(self, id):
-        self.cursor.execute(f"SELECT * FROM 01_MDG_PESSOA WHERE ID = {id}")
+        self.cursor.execute(f"SELECT * FROM pessoa WHERE ID = {id}")
         pessoa = self.cursor.fetchone()
         p = PessoaModel(pessoa[1], pessoa[2], pessoa[3], pessoa[0])
         return p.__dict__
 
-    def insert(self, pessoa):
-        return f'Cadastrando uma pessoa : {pessoa}'
+    def insert(self, pessoa : PessoaModel):
+        self.cursor.execute(f"""
+        INSERT INTO pessoa
+        (nome,sobrenome,idade)
+        VALUES
+        ('{pessoa.nome}',
+       ' {pessoa.sobrenome}',
+        {pessoa.idade})""")
+        self.connection.commit()
+        id = self.cursor.lastrowid
+        pessoa.id = id
+        return pessoa.__dict__
 
-    def update(self, pessoa):
-        return f'Alterando uma pessoa : {pessoa}'
+    def update(self, pessoa : PessoaModel):
+        self.cursor.execute(f"""
+            UPDATE pessoa
+                SET
+                    nome = '{pessoa.nome}'
+                    sobrenome = '{pessoa.sobrenome}'
+                    idade ={pessoa.idade}
+                WHERE ID = {pessoa.id}
+                """)
+        self.connection.commit()
+        return pessoa.__dict__
 
     def delete(self, id):
-        self.cursor.execute(f"DELETE FROM 01_MDG_PESSOA WHERE ID = {id}")
+        self.cursor.execute(f"DELETE FROM pessoa WHERE ID = {id}")
         self.connection.commit()
-        return 'A pessoa foi deletada com sucesso'
+        return f'Removido a pessao de id = {id}'
 
