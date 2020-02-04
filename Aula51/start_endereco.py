@@ -7,10 +7,10 @@ app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(EnderecoController, '/api/endereco', endpoint='enderecos')
-api.add_resource(EnderecoController, '/api/endereco', endpoint='endereco')
+api.add_resource(EnderecoController, '/api/endereco/<int:id>', endpoint='endereco')
 
 @app.route('/')
 def inicio():
     return 'Teste'
 
-app.run(debug=True, port=80)
+app.run(debug=True)

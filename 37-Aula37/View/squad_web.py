@@ -1,20 +1,11 @@
 from flask import Flask, render_template, request, redirect
 import sys
 sys.path.append(r'C:\Users\900160\Documents\TrabalhosPython\TrabalhosPython\37-Aula37')
-from Controller.squad_controller import SquadController
-from Controller.backend_controller import BackEndController
-from Controller.frontend_controller import FrontEndController
-from Controller.sgbds_controller import SgbdsController
+from TrabalhosPython.Aula41.Controller import SquadController
+from TrabalhosPython.Aula41.Controller import BackEndController
+from TrabalhosPython.Aula41.Controller import FrontEndController
+from TrabalhosPython.Aula41.Controller import SgbdsController
 from Model.squad_model import Squad
-from Dao.squad_dao import SquadDao
-from Model.model_backend import BackEnd
-from Model.model_frontend import FrontEnd
-from Model.model_sgbds import Sgbds
-from Dao.dao_backend import BackEndDao
-from Dao.dao_frontend import FrontEndDao
-from Dao.dao_sgbds import SgbdsDao
-
-
 
 app = Flask(__name__)
 squad_controller = SquadController()

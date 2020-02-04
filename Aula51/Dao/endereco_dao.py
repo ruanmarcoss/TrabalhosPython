@@ -18,7 +18,7 @@ class EnderecoDao:
     def get_by_id(self, id):
         self.cursor.execute(f"SELECT * FROM endereco WHERE ID = {id}")
         endereco = self.cursor.fetchone()
-        e = EnderecoDao(endereco[1], endereco[2], endereco[3], endereco[4], endereco[0])
+        e = EnderecoModel(endereco[1], endereco[2], endereco[3], endereco[4], endereco[0])
         return e.__dict__
 
     def insert(self, endereco : EnderecoModel):
@@ -28,22 +28,37 @@ class EnderecoDao:
         ('{endereco.rua}',
         '{endereco.complemento}',
         {endereco.numero},
-        {endereco.cep})""")
+        {endereco.cep})
+        """)
         self.conexao.commit()
         id = self.cursor.lastrowid
-        endereco.id =id
+        endereco.id = id
         return endereco.__dict__
 
     def update(self, endereco : EnderecoModel):
-        self.cursor.execute(f""""
-        UPDATE endereco
-            SET 
-                rua = '{endereco.rua}'
-                complemento = '{endereco.complemento}'
-                numero = {endereco.numero}
-                cep = {endereco.cep}""")
+        self.cursor.execute(f"""
+                UPDATE endereco 
+                    SET 
+                        rua = '{endereco.rua}',
+                        complemento = '{endereco.complemento}',
+                        numero = {endereco.numero},
+                        cep = {endereco.cep}
+                    WHERE ID = {endereco.id}
+             """)
         self.conexao.commit()
         return endereco.__dict__
+
+        # self.cursor.execute(f""""
+        # UPDATE endereco
+        #     SET
+        #         rua = '{endereco.rua}',
+        #         complemento = '{endereco.complemento}',
+        #         numero = {endereco.numero},
+        #         cep = {endereco.cep},
+        #     WHERE ID = {endereco.id}
+        #         """)
+        # self.conexao.commit()
+        # return endereco.__dict__
 
     def delete(self, id):
         self.cursor.execute(f"DELETE FROM endereco WHERE ID = {id}")

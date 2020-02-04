@@ -28,9 +28,8 @@ class EnderecoController(Resource):#Fazendo herança na classe, usando o Resourc
         numero = int(request.json['numero'])
         cep = int(request.json['cep'])
         endereco = EnderecoModel(rua, complemento, numero, cep, id)
-        comando = endereco
+        comando = self.dao.update(endereco)
         return comando
 
     def delete(self, id):
-        e = EnderecoModel(endereco[1],endereco[2],endereco[3],endereco[4],endereco[0])
-        return e.__dict__
+        return self.dao.delete(id)
