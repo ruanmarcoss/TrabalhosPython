@@ -11,7 +11,7 @@ aviao = []
 terminal = [el1,el2,el3,el4,el5,el6,el7,el8]
 numero_viagem=0
 def pessoas_terminal():
-    arquivo = open('29-Aula29/pessoas_terminal.txt', 'r')
+    arquivo = open('TrabalhosPython/29-Aula29/pessoas_terminal.txt', 'r')
     lista = []
     for ler in arquivo:
         linha = ler.strip().split(',')
@@ -78,7 +78,7 @@ for viagem in range(1,8):
         print(f'Estão no avião: {aviao}')
 lista1 = aviao
 def pessoas_aviao(lista1):
-    arquivo = open('29-Aula29/pessoas_terminal.txt', 'a')
+    arquivo = open('TrabalhosPython/29-Aula29/pessoas_terminal.txt', 'a')
     listas = []
     for ler in arquivo:
         linha = ler.strip().split(',')
