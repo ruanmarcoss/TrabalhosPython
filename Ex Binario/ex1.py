@@ -26,6 +26,7 @@ def binario(N):
     lista = list(n)
     lista.remove(lista[0])
     lista.remove(lista[0])
+    print(lista)
     contador = 0
     ultimo = 2
     maior = 0
@@ -34,12 +35,12 @@ def binario(N):
             contador += 1
         elif i == '0' and ultimo == '1':
             contador = 1
-        if contador > maior:
-            maior = contador
+        elif i != '0':
+            if contador > maior:
+                maior = contador
+
         ultimo = i
     return maior
 
 
-
-
-print(binario(2))
+print(binario(32))
